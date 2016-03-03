@@ -139,7 +139,7 @@ if (!$conn) {
     </section><!-- Bootstrap --><!-- App -->
     <script src="js/app.v1.js">
     </script> <!-- fuelux -->
-    <script src="js/fuelux.js">
+    <!-- <script src="js/fuelux.js"> -->
     </script><!-- fullcalendar -->
     <script src="js/jquery-ui-1.10.3.custom.min.js">
     </script>
