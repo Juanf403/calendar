@@ -8,7 +8,7 @@
  try {
  $bdd = new PDO('mysql:host=localhost;dbname=calendar', 'root', '');
  } catch(Exception $e) {
- exit('Impossible de se connecter à la base de données.');
+ exit('imposible conectrse a la bd');
  }
  // exécution de la requête
  $resultat = $bdd->query($requete) or die(print_r($bdd->errorInfo()));
