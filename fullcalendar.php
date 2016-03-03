@@ -16,21 +16,40 @@
         <h4 class="modal-title" id="myModalLabel">Agregar Evento</h4>
       </div>
       <div class="modal-body" id = "bg">
-      <?php 
-        include 'db.php';
+      <?php
+      $serv = "localhost";
+      $user = "root";
+      $pass = "";
+      $data = "calendar";
+
+      // Create connection
+$conn = mysqli_connect($serv, $user, $pass, $data);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
         if (isset($_POST['crear'])) {
             # code...
             $title       = mysql_real_escape_string($_POST['title']);
-            $star        = mysql_real_escape_string($_POST['star']);
+            $start       = mysql_real_escape_string($_POST['start']);
             $end         = mysql_real_escape_string($_POST['end']);
             $para        = mysql_real_escape_string($_POST['para']);
             $descripcion = mysql_real_escape_string($_POST['descripcion']);
 
-            mysql_db_query("INSERT INTO envenement SET title='".$title."','".$star."','".$end."'");
+            $sql = "INSERT INTO evenement SET title='".$title."',start='".$start."',end='".$end."'";
+
+            if (mysqli_query($conn, $sql)) {
+                echo "New record created successfully";
+            } else {
+                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+            }
+
+            mysqli_close($conn);
             header("location : fullcalendar.php");
         }
          ?>
         <form role="form" method = "post">
+
             <div class="form-group">
                 <input class="form-control" placeholder="Evento sin Titulo" type=
                 "text" name = "title">
@@ -38,7 +57,7 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-3">
-                        <input class="form-control" type="date" name = "star">
+                        <input class="form-control" type="date" name = "start">
                     </div><label class="col-md-1">a</label>
                     <div class="col-md-3">
                         <input class="form-control" type="date" name = "end">
@@ -63,7 +82,7 @@
             </div>
             <div class="modal-footer" id="bg">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <button type="button"  name = "crear" class="btn btn-primary">Crear Evento</button>
+        <button type="submit"  name = "crear" class="btn btn-primary">Crear Evento</button>
       </div>
         </form>
     </div>
@@ -104,7 +123,7 @@
                                         </button>
                                         <div class="btn-group hidden-nav-xs">
                                         <button class="btn btn-sm btn-primary"
-                                        type="button">Agregar Evento <span class="caret"></span>
+                                        type="submit">Agregar Evento <span class="caret"></span>
                                         </button>
                                         </div>
                                     </div>
@@ -129,7 +148,7 @@
     <script src="js/fullcalendar.min.js">
     </script>
     <script src="js/demo.js">
-    </script> 
+    </script>
     <script src="js/app.plugin.js">
     </script>
 </body>
