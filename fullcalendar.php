@@ -2,7 +2,6 @@
 <html class="app" lang="en">
 <head>
     <link href="css/font.css" rel="stylesheet" type="text/css">
-    <link href="css/fuelux.css" rel="stylesheet" type="text/css">
     <link href="css/fullcalendar.css" rel="stylesheet" type="text/css">
     <link href="css/theme.css" rel="stylesheet" type="text/css">
     <link href="css/app.v1.css" rel="stylesheet" type="text/css">
@@ -136,20 +135,15 @@ if (!$conn) {
             </section>
         </section>
         </section>
-    </section><!-- Bootstrap --><!-- App -->
-    <script src="js/app.v1.js">
-    </script> <!-- fuelux -->
-    <!-- <script src="js/fuelux.js"> -->
-    </script><!-- fullcalendar -->
-    <script src="js/jquery-ui-1.10.3.custom.min.js">
-    </script>
-    <script src="js/jquery.ui.touch-punch.min.js">
-    </script>
-    <script src="js/fullcalendar.min.js">
-    </script>
-    <script src="js/demo.js">
-    </script>
-    <script src="js/app.plugin.js">
-    </script>
+    </section>
+    <!-- Bootstrap -->
+    <!-- App -->
+    <script src="js/app.v1.js"></script>
+    <!-- fullcalendar -->
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/fullcalendar.min.js"></script>
+    <script src="js/demo.js"></script>
+    <script src="js/app.plugin.js"></script>
 </body>
 </html>
