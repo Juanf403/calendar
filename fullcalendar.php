@@ -2,6 +2,7 @@
 <html class="app" lang="en">
 <head>
     <link href="css/font.css" rel="stylesheet" type="text/css">
+    <link href="css/fuelux.css" rel="stylesheet" type="text/css">
     <link href="css/fullcalendar.css" rel="stylesheet" type="text/css">
     <link href="css/theme.css" rel="stylesheet" type="text/css">
     <link href="css/app.v1.css" rel="stylesheet" type="text/css">
@@ -35,7 +36,7 @@ if (!$conn) {
             $para        = mysql_real_escape_string($_POST['para']);
             $descripcion = mysql_real_escape_string($_POST['descripcion']);
 
-            $sql = "INSERT INTO evenement SET title='".$title."',start='".$start."',end='".$end."'";
+            $sql = "INSERT INTO evenement SET title='".$title."',start='".$start."',end='".$end."', descripcion='".$descripcion."'";
 
             if (mysqli_query($conn, $sql)) {
                 echo "New record created successfully";
@@ -129,6 +130,20 @@ if (!$conn) {
                                 </header>
                                 <div class="calendar" id="calendar">
                                 </div>
+                                <div id="fullCalModal" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"> x </span> <span class="sr-only">close</span></button>
+                                            <h4 id="modalTitle" class="modal-title"></h4>
+                                        </div>
+                                        <div id="modalBody" class="modal-body"></div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">ok</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             </section>
                         </section>
                     </section>
@@ -136,9 +151,10 @@ if (!$conn) {
         </section>
         </section>
     </section>
-    <!-- Bootstrap -->
-    <!-- App -->
-    <script src="js/app.v1.js"></script>
+    <!-- Bootstrap --><!-- App -->
+    <script src="js/app.v1.js"></script> 
+    <!-- fuelux -->
+    <script src="js/fuelux.js"></script>
     <!-- fullcalendar -->
     <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>

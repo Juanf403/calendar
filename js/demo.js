@@ -12,6 +12,8 @@
       // it doesn't need to have a start or end
       var eventObject = {
         title: $.trim($this.text()), // use the element's text as the event title
+        start: $.trim($this.date()),
+        end: $.trim(this.date()),
         className: $this.attr('class').replace('label','')
       };
       
@@ -110,7 +112,13 @@
            alert("OK");
            }
            });
-          }
+          },
+          eventClick:  function(event, jsEvent, view) {
+            $('#modalTitle').html(event.title);
+            $('#modalBody').html(event.descripcion);
+            $('#eventUrl').attr('href',event.url);
+            $('#fullCalModal').modal();
+        }
       });
     });
     $('#myEvents').on('change', function(e, item){
